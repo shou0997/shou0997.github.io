@@ -48,7 +48,7 @@ const answerImagePaths = {
   "ニィロウ":"https://pecoriblog.com/wp-content/uploads/2022/10/image-52.webp",
   "雷電将軍":"https://i.ytimg.com/vi/iFg-bFAu2AU/maxresdefault.jpg",
   "神里綾香":"https://img.gamewith.jp/article/thumbnail/rectangle/239751.png?date=1677492239",
-  "Please wait": "https://9-gld.net/genshin/wp-content/uploads/2022/12/03-2.jpg",
+  "Please wait": "material/Pictuers/kanu.png",
 };
 
   let quizIndex = 0;
@@ -109,7 +109,7 @@ const answerImagePaths = {
     $button[handlerIndex].addEventListener("click", clickHandler);
     $button[handlerIndex].addEventListener("mouseover", changeImage);
     $button[handlerIndex].addEventListener("mouseout", function() {
-      $imageHolder.src = "https://9-gld.net/genshin/wp-content/uploads/2022/12/03-2.jpg";
+      $imageHolder.src = "material/Pictuers/kanu.png";
     });
     handlerIndex++;
   };
