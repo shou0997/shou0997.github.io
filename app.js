@@ -104,6 +104,7 @@ const answerImagePaths = {
 
   $startButton.addEventListener("click", startQuiz);
 
+
   let handlerIndex = 0;
   while (handlerIndex < buttonLength) {
     $button[handlerIndex].addEventListener("click", clickHandler);
