@@ -113,7 +113,7 @@ function showEvaluation(score) {
     imageUrl = "material/Pictuers/mottoganbarimashou.png";
   }
 
-const evaluationWindow = window.open("", "Evaluation", "width=300,height=300");
+const evaluationWindow = window.open("", "Evaluation", "width=500,height=500");
 const evaluationContent = `
         <html>
         <head>
@@ -126,8 +126,8 @@ const evaluationContent = `
               margin-bottom: 10px;
             }
             img {
-              width: 200px;
-              height: 200px;
+              width: 350px;
+              height: 350px;
               margin-top: 10px;
             }
           </style>
