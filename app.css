@@ -4,39 +4,11 @@
   .centered-image {
     display: block;
     margin: 20px auto;
-    max-width: 50%; 
-    height: auto; 
+    max-width: 40%; /* 画像の最大幅を親要素に合わせる */
+    height: 70%; /* 高さを自動調整して画像の縦横比を保つ */
   }
   
-  .msr_h101 {
-    background: linear-gradient(#FEFEFE, #F3F5F5);
-    background: -o-linear-gradient(#FEFEFE, #F3F5F5);
-    background: -ms-linear-gradient(#FEFEFE, #F3F5F5);
-    background: -moz-linear-gradient(#FEFEFE, #F3F5F5);
-    background: -webkit-linear-gradient(#FEFEFE, #F3F5F5);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #F3F5F5), color-stop(0.00, #FEFEFE));
-    border: 1px solid #AAAAAA;
-    border-radius: 3px;
-    box-sizing: border-box;
-    font-size: 30px;
-    margin: 0 auto 20px; 
-    padding: 8px 10px 8px 26px;
-    position: relative;
-    width: 100%;
-  }
-  
-  .msr_h101:before {
-    background-color: #1B73BA;
-    border-radius: 3px;
-    content: " ";
-    display: inline-block;
-    height: 60%;
-    left: 10px;
-    margin-right: 10px;
-    position: absolute;
-    top: 20%;
-    width: 6px;
-  }
+
 .msr_h102 {
     background: linear-gradient(#FEFEFE, #F3F5F5);
     background: -o-linear-gradient(#FEFEFE, #F3F5F5);
@@ -48,14 +20,14 @@
     border-radius: 3px;
     box-sizing: border-box;
     font-size: 22px;
-    margin: 0 auto 20px; 
+    margin: 0 auto 20px; /* 水平方向に中央揃え */
     padding: 8px 10px 8px 26px;
     position: relative;
     width: 60%;
     color: rgb(82, 114, 242);
   }
   
- 
+  /* h1青の縦ライン */
   .msr_h102:before {
     background-color: #1B73BA;
     border-radius: 3px;
@@ -92,7 +64,7 @@
   margin: 0 0 20px;
 }
 
-
+/* h4青の縦ライン */
 .msr_h401:before {
   background-color: #1B73BA;
   border-radius: 2px;
@@ -139,4 +111,205 @@
     -moz-box-shadow:0 0 0px 0px rgba(0,0,0,0.2);
     box-shadow:0 0 0px 0px rgba(0,0,0,0.2);
   }
+
+  nav {
+    width: 100%;
+    height: 70px;
+    background-color: dimgray;
+    padding-top: 5px;
+    box-sizing: border-box;
+  }
+  ul {
+    display: flex;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin-right: 35px;
+  }
+
+  a:hover {
+    color: rgb(214, 237, 248);
+  }
+
+
+
+  .loop {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    overflow: hidden;
+    
+}
+.loop_box{
+    display: flex;
+    width: 130vw;
+}
+.loop_box img{
+    min-width: 130vw;   
+}
+.loop_box img:first-child{
+    animation: loop 120s -60s linear
+    infinite;
+}
+.loop_box img:last-child{
+    animation: loop2 120s linear infinite;
+}
+@keyframes loop {
+    0%{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+@keyframes loop2 {
+    0%{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-200%);
+    }
+}
+
+
+
+.btn ul{
+    background-color: #039aff;
+    column-span:all;
+    }
+    .btn ul a:hover{
+        text-decoration: none;
+    }
+    .btn{
+        text-decoration: none;
+        display: block;
+    }
+    .btn li{
+        border-radius: 5px;
+        border: 0px solid transparent;
+        background-color:#039aff;
+        padding: 5px;
+        text-decoration: none;
+        color: #ffffff;
+        height: 40px;
+        list-style:none;
+        width: 9%;
+        float:left;
+        font-family: BIZ UDPゴシック;
+    }
+    .btn li:focus,
+    .btn li:hover {
+        background: #404040;
+        border-color: currentColor;
+        color: #000;
+    }
+    .btn li a{
+        color: #ffffff;
+        text-align: center;
+        padding: 13px 0;
+        font-size: 14px;
+    }
+
+
+
+.topex{
+    max-width: 1225px;
+    margin-right: auto;
+    margin-left: auto;
+    
+    display: flex;
+}
+.topex li{
+    font-size: 20px;
+    height: 60px; 
+}
+.topex h1:before{
+    content: "";
+    display: block;
+    clear: both;
+}
+.topex1 {
+    width: 680px;
+    margin-right: auto;
+    margin-left: auto; 
+}
+.topex1 h1{
+    
+    color: #404040;
+    font-size: 30px;
+    border-bottom: solid 3px #404040;  
+
+    width: 700px;
+
+    padding-left : 20px;
+    background: url("image/見出し.jpg") no-repeat left center;
+
+
+}
+
+
+
+.topex p{
+    color: #000;
+    font-size: 25px;
+    font-family: BIZ UDPゴシック;
+    padding-left : 100px;
+    padding-top : 125px;
+    background-image: url(image/topC.jpg);
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 380px;
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+.scroll_lists{
+    width: 680px;
+    height: 180px;
+    overflow: scroll;  
+}
+.scroll_lists li{
+    border-bottom: solid 2px #bfbfbf;
+    list-style: none;
+    font-size: 16px;
+
+}
+.scroll_lists li a{
+    font-size: 20px;
+    font-family: BIZ UDPゴシック;
+    text-decoration: none;
+    color: #404040;
+}
+.scroll_lists li a:hover{
+    color: #FF0000; 
+}
+
+
+footer{
+    text-align:center;
+    font-family: BIZ UDPゴシック;
+}
+
+
+img{
+    max-width: 100%;
+}
+
+iframe{
+    max-width: 100%;
+}
+
 
