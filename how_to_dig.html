@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>DIGプログラム基礎を受講して</title>
+    <meta name="description" content="DIGのプレゼンテーション用">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="top.css">
+  <style>
+    .msr_btn13-container {
+      display: flex;
+      justify-content: center;
+    }
+    .msr_btn13 {
+      margin-right: 10px;
+    }
+    .msr_btn13:last-child {
+      margin-right: 0;
+    }
+  </style>
+  </head>
+  <body>
+  <h1>■プログラム基礎を受講して</h1>
+  <nav id="g_navi">
+	<ul>
+		<li><a href="index.html">TOP</a></li>
+		<li><a href="myself.html">自己紹介</a></li>
+		<li><a href="dokidoki_quize.html">ドキドキ★クイズ</a></li>
+		<li><a href="how_to_dig.html">プログラム解説</a></li>
+		<li><a href="ending.html">受講した感想</a></li>
+	</ul>
+</nav>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<pre class="prettyprint linenums">
+  const quiz = [
+    {
+      question: "ゲーム市場、最も売れたゲーム機は次のうちどれ？",
+      answers: [
+        "スーパーファミコン",
+        "プレイステーション",
+        "ニンテンドースイッチ",
+        "ニンテンドーＤＳ"
+      ],
+      correct: "ニンテンドーＤＳ"
+    },
+    {
+      question: "このゲーム機の中で、最も売れなかったゲーム機は次のうちどれ？",
+      answers: [
+        "プレイディア",
+        "バーチャルボーイ",
+        "PCエンジン",
+        "セガサターン"
+      ],
+      correct: "プレイディア"
+    },
+    {
+      question: "トヨタのビーチバレーの拠点はどこ？",
+      answers: [
+        "トヨタ本社",
+        "田原工場",
+        "上郷工場",
+        "衣浦工場"
+      ],
+      correct: "衣浦工場"
+    }
+  ];
+  
+  const $questionsSound = document.getElementById("questionsSound");
+  const $okSound = document.getElementById("okSound");
+  const $ngSound = document.getElementById("ngSound");
+  const $resultSound = document.getElementById("resultSound");
+  const $startButton = document.getElementById("startButton");
+  const $button = document.getElementsByName("button");
+  const buttonLength = $button.length;
+  const $imageHolder = document.getElementById("imageHolder");
+  
+  const answerImagePaths = {
+    "スーパーファミコン": "https://www.famitsu.com/images/000/241/230/z_6194f53293668.jpg",
+    "プレイステーション": "https://www.famitsu.com/images/000/210/529/y_5fc772ed41c33.jpg",
+    "ニンテンドースイッチ": "https://store-jp.nintendo.com/on/demandware.static/Sites-MNS-Site/-/default/dw45c75d0f/images/switch_customize/HEG_S_KAAAA-FRONT.png",
+    "ニンテンドーＤＳ": "https://m.media-amazon.com/images/I/414QM12GRAL._AC_UF894,1000_QL80_.jpg",
+    "プレイディア": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0404/users/e81e9fa79f3f3b0c717f0bc386a4ace2a45512cb/i-img1200x796-1681119713pu9ygu571792.jpg",
+    "バーチャルボーイ": "https://vrinside.jp/wp-content/uploads/vb.jpg",
+    "PCエンジン": "https://www.famitsu.com/images/000/280/702/y_635a217e186d4.jpg",
+    "セガサターン": "https://www.famitsu.com/images/000/283/250/y_5fb7bcbe91ef5.jpg",
+    "トヨタ本社": "https://www.gamespark.jp/imgs/zoom/622123.jpg",
+    "田原工場": "https://pecoriblog.com/wp-content/uploads/2022/10/image-52.webp",
+    "上郷工場": "https://i.ytimg.com/vi/iFg-bFAu2AU/maxresdefault.jpg",
+    "衣浦工場": "https://i.ytimg.com/vi/iFg-bFAu2AU/maxresdefault.jpg",
+    "Please wait": "https://9-gld.net/genshin/wp-content/uploads/2022/12/03-2.jpg",
+  };
+  
+  let quizIndex = 0;
+  let score = 0;
+  
+  function setupQuiz() {
+    document.getElementById("js-question").textContent = quiz[quizIndex].question;
+    let buttonindex = 0;
+    while (buttonindex < buttonLength) {
+      $button[buttonindex].textContent = quiz[quizIndex].answers[buttonindex];
+      buttonindex++;
+      if (quizIndex > 0) {
+        document.getElementById("questionsSound").play();
+      }
+    }
+  }
+  
+  function changeImage(event) {
+    const clickedButton = event.target.textContent;
+    const imagePath = answerImagePaths[clickedButton];
+    $imageHolder.src = imagePath;
+  }
+  
+  function clickHandler() {
+    const clickedText = this.textContent;
+    if (quiz[quizIndex].correct === clickedText) {
+      $okSound.play();
+      window.alert("正解！");
+      score++;
+    } else {
+      $ngSound.play();
+      window.alert("不正解！");
+    }
+  
+    quizIndex++;
+  
+    if (quizIndex < quiz.length) {
+      setupQuiz();
+    } else {
+      $resultSound.play();
+      showEvaluation(score);
+      quizIndex = 0;
+      score = 0;
+      setupQuiz();
+    }
+  }
+  
+  function showEvaluation(score) {
+    const accuracy = (score / quiz.length) * 100;
+    let imageUrl = "";
+  
+    if (accuracy >= 80) {
+      imageUrl = "https://illust8.com/wp-content/uploads/2020/10/taihenyokudekimashita_11202.png";
+    } else if (accuracy >= 60) {
+      imageUrl = "https://nureyon.com/sample/88/flower-8-p1.svg?1615511678";
+    } else {
+      imageUrl = "https://vegl.biz/illustration/wp-content/uploads/2017/08/%E3%82%82%E3%81%A3%E3%81%A8%E3%81%8C%E3%82%93%E3%81%B0%E3%82%8A%E3%81%BE%E3%81%97%E3%82%87%E3%81%86%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.png";
+    }
+  
+  const evaluationWindow = window.open("", "Evaluation", "width=500,height=500");
+  const evaluationContent = `
+          <!-- <html>
+          <head>
+            <title>採点！</title>
+            <style>
+              body {
+                text-align: center;
+              }
+              h2 {
+                margin-bottom: 10px;
+              }
+              img {
+                width: 350px;
+                height: 350px;
+                margin-top: 10px;
+              }
+            </style>
+          </head>
+          <body>
+            <h2>評価</h2>
+            <p>正解率：${accuracy.toFixed(0)}%</p>
+            <img src="${imageUrl}">
+          </body>
+          </html> -->
+        `;
+        evaluationWindow.document.write(evaluationContent);
+      }
+  
+  function startQuiz() {
+    $startButton.style.display = "none";
+    setupQuiz();
+    $questionsSound.play();
+  }
+  
+  $startButton.addEventListener("click", startQuiz);
+  
+  let handlerIndex = 0;
+  while (handlerIndex < buttonLength) {
+    $button[handlerIndex].addEventListener("click", clickHandler);
+    $button[handlerIndex].addEventListener("mouseover", changeImage);
+    $button[handlerIndex].addEventListener("mouseout", function () {
+      $imageHolder.src = "https://9-gld.net/genshin/wp-content/uploads/2022/12/03-2.jpg";
+    });
+    handlerIndex++;
+  }
+  
+</pre>
+</body>
+</html>
