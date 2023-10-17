@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>DIGプログラム基礎を受講して</title>
+    <meta name="description" content="DIGのプレゼンテーション用">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="top.css">
+    <link rel="stylesheet" href="app.css">
+  <style>
+    .msr_btn13-container {
+      display: flex;
+      justify-content: center;
+    }
+    .msr_btn13 {
+      margin-right: 10px;
+    }
+    .msr_btn13:last-child {
+      margin-right: 0;
+    }
+    
+    
+  </style>
+  </head>
+  <body>
+  <h1>■プログラム基礎を受講して</h1>
+  <nav id="g_navi">
+	<ul>
+		<li><a href="index.html">TOP</a></li>
+		<li><a href="myself.html">自己紹介</a></li>
+		<li><a href="dokidoki_quize.html">ドキドキ★クイズ</a></li>
+		<li><a href="how_to_dig.html">プログラム解説</a></li>
+		<li><a href="ending.html">受講した感想</a></li>
+	</ul>
+</nav>
+</head>
+<body>
+    
+ <div class="container">
+ <h1 class="msr_h102" id ="js-question">↓↓スタートボタンを押そう！↓↓</h1>
+ <button id="startButton">スタート</button>
+ <div class="msr_btn13-container">
+   <p class="msr_btn13"><a href="#" name ="button">Please wait</a></p>
+   <p class="msr_btn13"><a href="#" name ="button">Please wait</a></p>
+   <p class="msr_btn13"><a href="#" name ="button">Please wait</a></p>
+   <p class="msr_btn13"><a href="#" name ="button">Please wait</a></p>
+ </div>
+ <audio id="questionsSound" preload="auto" src="C:\Users\1371099\Desktop\DIG\material\Quiz-Results01-mp3\男声「オーッ！」.mp3"></audio> <!-- 正解の音声ファイル correct.mp3 を追加 -->
+ <audio id="okSound" src="C:\Users\1371099\Desktop\DIG\material\Quiz-Correct_Answer01-mp3\Quiz-Correct_Answer01-3.mp3"></audio> <!-- 正解の音声ファイル correct.mp3 を追加 -->
+ <audio id="ngSound" src="C:\Users\1371099\Desktop\DIG\material\Quiz-Wrong_Buzzer01-mp3\Quiz-Wrong_Buzzer01-3.mp3"></audio> <!-- 正解の音声ファイル correct.mp3 を追加 -->
+ <audio id="resultSound" src="C:\Users\1371099\Desktop\DIG\material\Quiz-Results01-mp3\女声「オーッ！」.mp3"></audio> <!-- 正解の音声ファイル correct.mp3 を追加 -->
+ <img id="imageHolder" class="centered-image" src="C:\Users\1371099\Desktop\DIG\material\Pictuers\quiz_top.png" alt="Image">
+ 
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
